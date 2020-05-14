@@ -1,0 +1,316 @@
+-- 1. Create a new table named 'bajaj1' containing the date, close price, 20 Day MA and 50 Day MA.
+-- (This has to be done for all 6 stocks)
+
+-- bajaj1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP table IF EXISTS bajaj1;	-- Drop table is already exists
+
+-- Create a new table named Bajaj1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE bajaj1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`,	-- Converting Date into a better readable format
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM bajaj 
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+ALTER TABLE bajaj1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM bajaj1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- eicher1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS eicher1;	-- Drop table is already exists
+
+-- Create a new table named Eicher1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE eicher1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`, -- Converting Date into a better readable format. 
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM eicher
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+ALTER TABLE eicher1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM eicher1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- hero1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+
+DROP TABLE IF EXISTS hero1;	-- Drop table is already exists
+
+-- Create a new table named hero1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE hero1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`, -- Converting Date into a better readable format. 
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM hero
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+
+ALTER TABLE hero1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM hero1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- infosys1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+
+DROP TABLE IF EXISTS infosys1;	-- Drop table is already exists
+
+-- Create a new table named infosys1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE infosys1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`, -- Converting Date into a better readable format. 
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM infosys
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+
+ALTER TABLE infosys1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM infosys1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- tcs1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+
+DROP TABLE IF EXISTS tcs1;	-- Drop table is already exists
+
+-- Create a new table named tcs1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE tcs1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`, -- Converting Date into a better readable format. 
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM tcs
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+
+ALTER TABLE tcs1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM tcs1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- tvs1
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+
+DROP TABLE IF EXISTS tvs1;	-- Drop table is already exists
+
+-- Create a new table named tvs1 having Date, Close_Price, 20 and 50 days moving averages
+CREATE TABLE tvs1 AS
+	SELECT 
+    STR_TO_DATE(`Date`, "%d-%M-%Y") as `Date`, -- Converting Date into a better readable format. 
+    Close_Price, 
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 19 PRECEDING) AS `20 Day MA`,	-- Use Window function with Frames(Precedings) to calculate the moving averages
+    AVG(Close_Price) OVER (ORDER BY `Date` ASC ROWS 49 PRECEDING) AS `50 Day MA`
+    FROM tvs
+    WHERE Close_Price IS NOT NULL AND `Date` IS NOT NULL;
+    
+-- As the operations using keys are much faster due to indexing
+-- Setting Date as Primary Key to improve the performance of further operations on this table
+
+ALTER TABLE tvs1
+	ADD PRIMARY KEY (`Date`);
+    
+SELECT * FROM tvs1;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+-- 2. Create a master table containing the date and close price of all the six stocks.
+-- (Column header for the price is the name of the stock)
+
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+
+DROP TABLE IF EXISTS `Master`;
+
+-- Creating a master table having date and close prices of all the six stocks on each day
+CREATE TABLE IF NOT EXISTS `Master` AS
+	SELECT  baj.`Date` AS `Date`, 
+			baj.Close_Price AS Bajaj,
+			tcs.Close_Price AS TCS,
+			tvs.Close_Price AS TVS,
+			inf.Close_Price AS Infosys,
+			eic.Close_Price AS Eicher,
+			hero.Close_Price AS Hero
+    FROM bajaj1 baj 
+		INNER JOIN tcs1 tcs ON baj.`Date`=tcs.`Date`
+		INNER JOIN tvs1 tvs ON tcs.`Date`=tvs.`Date`
+		INNER JOIN infosys1 inf ON tvs.`Date`=inf.`Date`
+		INNER JOIN eicher1 eic ON inf.`Date`=eic.`Date`
+		INNER JOIN hero1 hero ON eic.`Date`=hero.`Date`;
+    
+SELECT * FROM `Master`;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- 3. Use the table created in Part(1) to generate buy and sell signal. Store this in another table named 'bajaj2'.
+-- Perform this operation for all stocks.
+
+-- bajaj2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS bajaj2;
+CREATE TABLE IF NOT EXISTS bajaj2 AS	-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM bajaj1 ;
+
+SELECT * FROM bajaj2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- eicher2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS eicher2;
+CREATE TABLE IF NOT EXISTS eicher2 AS	-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM eicher1 ;
+
+SELECT * FROM eicher2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- hero2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS hero2;
+CREATE TABLE IF NOT EXISTS hero2 AS		-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM hero1;
+
+SELECT * FROM hero2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- infosys2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS infosys2;
+CREATE TABLE IF NOT EXISTS infosys2 AS	-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM infosys1;
+
+SELECT * FROM infosys2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- tcs2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS tcs2;
+CREATE TABLE IF NOT EXISTS tcs2 AS	-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM tcs1;
+
+SELECT * FROM tcs2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- tvs2
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+DROP TABLE IF EXISTS tvs2;
+CREATE TABLE IF NOT EXISTS tvs2 AS	-- Creating a table having Date, close_price and a Signal whether to Buy/Sell/Hold
+SELECT `Date`, Close_Price AS `Close Price`,
+	CASE
+		WHEN (`20 Day MA` > `50 Day MA`)   THEN 'BUY'	-- When the shorter moving average is higher than the longer moving average, it is a signal to BUY.
+		WHEN (`20 Day MA` < `50 Day MA`)   THEN 'SELL'	-- When the longer moving average is higher than the shorter moving average, it is a signal to SELL.
+		ELSE 'HOLD'		-- If the signal is neither buy nor sell, it is meant to be in hold.
+	END AS `Signal`
+FROM tvs1;
+
+SELECT * FROM tvs2;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-- 4. Create a User defined function, that takes the date as input and returns the signal for that particular day (Buy/Sell/Hold) for the Bajaj stock.
+
+USE Assignment;
+SET SQL_SAFE_UPDATES = 0;	-- Setting Safe Update mode off
+-- Dropping the User Defined Function if it already exists
+DROP FUNCTION IF EXISTS Bajaj_Stock_Signal;
+-- Creating the User Defined Function to get Signal Buy/Sell/Hold of a specific user desired date
+DELIMITER $$
+CREATE FUNCTION Bajaj_Stock_Signal(user_input_date date) 
+  RETURNS VARCHAR(20)
+  DETERMINISTIC
+BEGIN
+RETURN (SELECT `Signal` FROM `bajaj2` WHERE `Date` = user_input_date);
+END $$
+DELIMITER ;
+
+-- Test the above created user defined function with some random dates
+-- Now testing on the date "2015-01-05", expecting the signal to "BUY"
+SELECT Bajaj_Stock_Signal("2015-01-05") as `Signal`;
+
+-- Now testing on the date "2015-02-05", expecting the signal to "SELL"
+SELECT Bajaj_Stock_Signal("2015-02-05") as `Signal`;
+
+-- Now finally testing on the date "2015-04-01", expecting the signal to "HOLD"
+SELECT Bajaj_Stock_Signal("2015-04-01") as `Signal`;
+
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
